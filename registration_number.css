@@ -1,0 +1,39 @@
+/**
+*** SIMPLE GRID
+*** (C) ZACH COLE 2016
+**/
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+/* UNIVERSAL */
+
+html,
+body {
+  /* background: url(naruto-team-seven.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  font-size: xx-large;
+  font-family: Impact;  
+  text-align: center;  
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+@media only screen and (min-width: 33.75em) {  /* 540px */
+    
+  }
+  
+  @media only screen and (min-width: 45em) {  /* 720px */
+    
+  } 
+  
+  @media only screen and (min-width: 60em) { /* 960px */
+
+  }

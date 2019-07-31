@@ -2,8 +2,14 @@ function registrationNumbers() {
     var regList = [];
 
     function displayRegNumbers(list) {
+    if(!regList.includes(list)){
         regList.push(list);
+        return list;
     }
+    if(list === undefined){
+        return "Please enter Registration number!"
+    }
+}
 
     function setReg() {
     var filterdList = [];

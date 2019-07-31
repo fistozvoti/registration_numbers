@@ -13,15 +13,15 @@ function regNum(number) {
 
 function displayReg() {
 
-    var outPut = setOutput.value.toUpperCase();
+    // var outPut = setOutput.value.toUpperCase();
 
-    for (var i = 0; i < radioBtns.length; i++) {
-        if (radioBtns[i].checked) {
-            var radioBtnValue = radioBtns[i].value
-        }
-    }
+    // for (var i = 0; i < radioBtns.length; i++) {
+    //     if (radioBtns[i].checked) {
+    //         var radioBtnValue = radioBtns[i].value
+    //     }
+    // }
 
-    var result = factoryFunc.displayRegNumbers(outPut);
+    // var result = factoryFunc.displayRegNumbers(outPut);
 
     // console.log(addReg);
     // var list = factoryFunc.getList();

@@ -2,28 +2,38 @@ function registrationNumbers() {
     var regList = [];
 
     function displayRegNumbers(list) {
-    if(!regList.includes(list)){
-        regList.push(list);
-        return list;
+        let found = false;
+        
+        if (regList.length == 0) {
+            regList.push(list);
+        }
+        else if (regList.length >= 1) {
+            for (var i = 0; i < regList.length; i++) {
+                var regNum = regList[i];
+                if (regNum === list) {
+                    found = true;
+                }
+            }
+            if(!found){
+                regList.push(list);
+                found = false;
+            }
+        }
     }
-    if(list === undefined){
-        return "Please enter Registration number!"
-    }
-}
 
-    function setReg() {
-    var filterdList = [];
 
+    function filterRegsOnTown(town) {
+        var filterdList = [];
         for (var i = 0; i < regList.length; i++) {
-             var reg = regList[i];
+            var reg = regList[i];
 
-            if (reg.startsWith('CA')) {
+            if (reg.startsWith(town)) {
                 filterdList.push(reg);
             }
-            else if (reg.startsWith('CY')) {
+            else if (reg.startsWith(town)) {
                 filterdList.push(reg);
             }
-            else if (reg.startsWith('CK')) {
+            else if (reg.startsWith(town)) {
                 filterdList.push(reg);
             }
         }
@@ -31,13 +41,14 @@ function registrationNumbers() {
         return filterdList;
     }
 
+
     function getList() {
         return regList;
     }
 
     return {
         displayRegNumbers,
-        setReg,
+        filterRegsOnTown,
         getList
     }
 }

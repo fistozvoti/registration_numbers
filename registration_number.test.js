@@ -15,13 +15,7 @@ describe('Registration Numbers', function () {
         addToList.displayRegNumbers('CA 45645');
         addToList.displayRegNumbers('VK 43533');
         addToList.displayRegNumbers('CO 43533');
-        assert.deepEqual(['CA 45645'], addToList.setReg());
-    });
-    it('should show error message if there is no registration number entered', function () {
-        let getError = registrationNumbers();
-
-        getError.displayRegNumbers();
-        assert.deepEqual('Please enter Registration number!', getError.displayRegNumbers());
+        assert.deepEqual(['CA 45645'], addToList.filterRegsOnTown('CA'));
     });
     it('should be able to filter out "CY" registration number if Bellville is selected', function () {
         let addToList = registrationNumbers();
@@ -31,7 +25,7 @@ describe('Registration Numbers', function () {
         addToList.displayRegNumbers('CY 78965');
         addToList.displayRegNumbers('OP 54586');
         addToList.displayRegNumbers('CY 55887');
-        assert.deepEqual(['CY 55887','CY 78965'], addToList.setReg());
+        assert.deepEqual(['CY 55887','CY 78965'], addToList.filterRegsOnTown('CY'));
     });
     it('should be able to filter out "CK" registration number if Malmesbury is selected ', function () {
         let addToList = registrationNumbers();
@@ -39,16 +33,14 @@ describe('Registration Numbers', function () {
         addToList.displayRegNumbers('CK 55666');
         addToList.displayRegNumbers('CL 43533');
         addToList.displayRegNumbers('CK 43533');
-        assert.deepEqual([ 'CK 55666', 'CK 43533' ], addToList.setReg());
+        assert.deepEqual([ 'CK 55666', 'CK 43533' ], addToList.filterRegsOnTown('CK'));
     });
     it('should not show the registration number if it has been already added to the list', function () {
         let addToList = registrationNumbers();
 
+        addToList.displayRegNumbers('CK 55666');
         addToList.displayRegNumbers('CY 55887');
-        addToList.displayRegNumbers('CA 56546');
-        addToList.displayRegNumbers('CK 78965');
-        addToList.displayRegNumbers('OP 54586');
         addToList.displayRegNumbers('CY 55887');
-        assert.deepEqual([ 'CY 55887', 'CA 56546', 'CK 78965' ], addToList.setReg());
+        assert.deepEqual([ 'CY 55887'], addToList.filterRegsOnTown('CY 55887'));
     });  
 });

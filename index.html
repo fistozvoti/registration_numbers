@@ -16,30 +16,39 @@
             <h1>Registration Numbers</h1>
         </div>
         <div class="center">
-            <input name="number" class="inputReg" placeholder="enter registration">
+            <input name="number" class="inputReg" onfocus="this.value=''" placeholder="enter registration">
+        </div>
+        <div >
+            <p class="message"></p>
         </div>
 
-        <div class="control">
+        <div class="radioBtns">
             <label>
-                <input class="radios" type="radio" name="place" value="Cape Town">
+                <input class="radios" name="radioBtns" type="radio" value="CA">
                 Cape Town
             </label>
             <label>
-                <input class="radios" type="radio" name="place" value="Bellville">
+                <input class="radios" name="radioBtns" type="radio" value="CY">
                 Bellville
             </label>
             <label>
-                <input class="radios" type="radio" name="place" value="Malmesbury">
+                <input class="radios" name="radioBtns" type="radio" value="CK">
                 Malmesbury
+            </label>
+            <label>
+                <input class="radios" name="radioBtns" type="radio" value="">
+                All
             </label>
         </div>
 
-        <div class="buttons">
-                <button class="button-primary addBtn" type="button" name="addBtn">Add</button>
-                <!-- <span><button class="button-primary resetBtn"  type="button" name="reset">Reset</button></span> -->
+        <div>
+            <button class="addBtn">Add</button>
+            <button class="filterBtn">Show</button>
         </div>
       
-        <div class="displayOutputField"></div>
+        <div class="displayOutputField">
+
+        </div>
         </div>
 
 </body>

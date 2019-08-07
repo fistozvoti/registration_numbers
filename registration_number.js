@@ -3,20 +3,23 @@ function registrationNumbers() {
 
     function displayRegNumbers(list) {
         let found = false;
-        
+
         if (regList.length == 0) {
             regList.push(list);
+            return found;
         }
         else if (regList.length >= 1) {
             for (var i = 0; i < regList.length; i++) {
                 var regNum = regList[i];
                 if (regNum === list) {
                     found = true;
+                    return found;
                 }
             }
-            if(!found){
+            if (!found) {
                 regList.push(list);
                 found = false;
+                return found;
             }
         }
     }
@@ -37,7 +40,6 @@ function registrationNumbers() {
                 filterdList.push(reg);
             }
         }
-
         return filterdList;
     }
 

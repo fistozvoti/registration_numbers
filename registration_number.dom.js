@@ -28,21 +28,26 @@ function displayReg() {
             clearError();
             return error.innerHTML = "This is not valid dude!"
         }
-        factoryFunc.displayRegNumbers(ouput);
+
+        let checkIfExists = factoryFunc.displayRegNumbers(ouput);
+
+        if(checkIfExists === true){
+            clearError();
+            return error.innerHTML = "This already exists dude!"
+        }
+
         localStorage.setItem('list', JSON.stringify(factoryFunc.getList()))
         let list = factoryFunc.getList();
-        outputField.innerHTML = '';
+        outputField.innerHTML =  '';
         for (var x = 0; x < list.length; x++) {
             var getOutput = document.createElement("div");
             getOutput.classList.add("plates")
             var newContent = document.createTextNode(list[x]);
             getOutput.appendChild(newContent)
             outputField.appendChild(getOutput);
-        };
+        }
         error.innerHTML = "";
     }
-
-   
 }
 
 
@@ -56,7 +61,7 @@ function showReg() {
     localStorage.setItem('list', JSON.stringify(factoryFunc.getList()))
     if (getFiltered.length == 0) {
         clearError();
-        return outputField.innerHTML = "No registration(s) for this Town yet!";
+        return outputField.innerHTML = "No registration(s) yet!";
     }
     else {
         outputField.innerHTML = ""
@@ -68,7 +73,7 @@ function showReg() {
             getOutput.appendChild(newContent)
             outputField.appendChild(getOutput);
     }
-    };
+    }
 
 }
 showRegNums.addEventListener('click', showReg)

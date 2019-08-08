@@ -1,5 +1,5 @@
 function registrationNumbers() {
-    var regList = [];
+    var regList = storeRegs || [];
 
     function displayRegNumbers(list) {
         let found = false;
@@ -31,12 +31,6 @@ function registrationNumbers() {
             var reg = regList[i];
 
             if (reg.startsWith(town)) {
-                filterdList.push(reg);
-            }
-            else if (reg.startsWith(town)) {
-                filterdList.push(reg);
-            }
-            else if (reg.startsWith(town)) {
                 filterdList.push(reg);
             }
         }

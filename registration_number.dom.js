@@ -4,41 +4,58 @@ var showRegNums = document.querySelector(".filterBtn");
 var radioBtns = document.querySelectorAll(".radios");
 var outputField = document.querySelector(".displayOutputField")
 var error = document.querySelector('.message');
+var resetBtnElem = document.querySelector(".resetBtn")
 
 function clearError() {
-	setTimeout(function () {
-		error.innerHTML = "";
-	}, 2000);
+    setTimeout(function () {
+        error.innerHTML = "";
+    }, 2000);
 }
 
 var storeRegs = JSON.parse(localStorage.getItem('list'))
 var factoryFunc = registrationNumbers(storeRegs);
 
-function displayReg() {
+window.addEventListener('DOMContentLoaded', (event) => {
     
-    var ouput = setOutput.value.toUpperCase();
+    for (let i = 0; i < storeRegs.length; i++) {
+        const element = storeRegs[i];
+        var getStored = document.createElement("div");
+        getStored.classList.add("plates");
+        var newContent = document.createTextNode(element);
+        getStored.appendChild(newContent);
+        outputField.appendChild(getStored);
+    }
+});
 
-    if (ouput === "" || ouput === undefined) {
+function displayReg() {
+
+    var input = setOutput.value.toUpperCase();
+
+    if (input === "" || input === undefined) {
         clearError();
         return error.innerHTML = "Please add a registration number!"
     } else {
         var reg = /^([A-Z]){2}\s([0-9]){3}\s([0-9]){3}/;
         var regEx = reg.test(setOutput.value.toUpperCase());
-        if(!regEx){
-            clearError();
-            return error.innerHTML = "This is not valid dude!"
-        }
+        var reg = /^([A-Z]){2}\s([0-9]){3}/;
+        var regEx1 = reg.test(setOutput.value.toUpperCase());
+        // var regex = /^([a-z]){2}([0-9]){6}/;
 
-        let checkIfExists = factoryFunc.displayRegNumbers(ouput);
+        if (!regEx && !regEx1) {
+        clearError();
+        return error.innerHTML = "This is not valid dude!";
+    }
 
-        if(checkIfExists === true){
+        let checkIfExists = factoryFunc.displayRegNumbers(input);
+
+        if (checkIfExists === true) {
             clearError();
             return error.innerHTML = "This already exists dude!"
         }
 
         localStorage.setItem('list', JSON.stringify(factoryFunc.getList()))
         let list = factoryFunc.getList();
-        outputField.innerHTML =  '';
+        outputField.innerHTML = '';
         for (var x = 0; x < list.length; x++) {
             var getOutput = document.createElement("div");
             getOutput.classList.add("plates")
@@ -68,13 +85,18 @@ function showReg() {
         error.innerHTML = "";
         for (var x = 0; x < getFiltered.length; x++) {
             var getOutput = document.createElement("div");
-            getOutput.classList.add("plates")
+            getOutput.classList.add("plates");
             var newContent = document.createTextNode(getFiltered[x]);
-            getOutput.appendChild(newContent)
+            getOutput.appendChild(newContent);
             outputField.appendChild(getOutput);
+        }
     }
-    }
-
 }
-showRegNums.addEventListener('click', showReg)
+function reset() {
+    localStorage.clear();
+    outputField.innerHTML = storeRegs;
+    location.reload();
+}
+resetBtnElem.addEventListener('click', reset);
+showRegNums.addEventListener('click', showReg);
 displayBtn.addEventListener('click', displayReg);

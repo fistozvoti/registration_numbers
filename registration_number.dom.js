@@ -40,7 +40,8 @@ function displayReg() {
         var regEx = reg.test(setOutput.value.toUpperCase());
         var reg = /^([A-Z]){2}\s([0-9]){3}/;
         var regEx1 = reg.test(setOutput.value.toUpperCase());
-        var regEx2 = /^([a-z]){2}\s([0-9]){6}/;
+        var reg = /^([a-z]){2}\s([0-9]){6}/;
+        var regEx2 = reg.test(setOutput.value.toUpperCase());
 
         if (!regEx && !regEx1 && !regEx2) {
         clearError();

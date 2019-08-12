@@ -33,15 +33,16 @@ function displayReg() {
 
     if (input === "" || input === undefined) {
         clearError();
-        return error.innerHTML = "Please add a registration number!"
-    } else {
+        return error.innerHTML = "Please add a registration number!";
+    } 
+    else{
         var reg = /^([A-Z]){2}\s([0-9]){3}\s([0-9]){3}/;
         var regEx = reg.test(setOutput.value.toUpperCase());
         var reg = /^([A-Z]){2}\s([0-9]){3}/;
         var regEx1 = reg.test(setOutput.value.toUpperCase());
-        // var regex = /^([a-z]){2}([0-9]){6}/;
+        var regEx2 = /^([a-z]){2}\s([0-9]){6}/;
 
-        if (!regEx && !regEx1) {
+        if (!regEx && !regEx1 && !regEx2) {
         clearError();
         return error.innerHTML = "This is not valid dude!";
     }

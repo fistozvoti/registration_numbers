@@ -11,14 +11,14 @@
 
 <body>
 
-        <div class="container">
+    <div class="split left">
         <div class="header">
             <h1>Registration Numbers</h1>
         </div>
         <div class="center">
             <input name="number" class="inputReg" onfocus="this.value=''" placeholder="e.g. CA 123 456">
         </div>
-        <div >
+        <div>
             <p class="message"></p>
         </div>
 
@@ -46,14 +46,59 @@
             <button class="filterBtn">Show</button>
             <button class="resetBtn">Reset</button>
         </div>
-      
+
         <div class="displayOutputField">
 
         </div>
-        </div>
+    </div>
 
 </body>
 <script src="./registration_number.js"></script>
 <script src="./registration_number.dom.js"></script>
 
+<body>
+
+    <div class="split right">
+        <div class="header">
+            <h1>Registration Numbers</h1>
+        </div>
+        <div class="center">
+            <input name="number" class="inputReg" onfocus="this.value=''" placeholder="e.g. CA 123 456">
+        </div>
+        <div>
+            <p class="message"></p>
+        </div>
+
+        <div class="radioBtns">
+            <label>
+                <input class="radios" name="radioBtns" type="radio" value="CA">
+                Cape Town
+            </label>
+            <label>
+                <input class="radios" name="radioBtns" type="radio" value="CY">
+                Bellville
+            </label>
+            <label>
+                <input class="radios" name="radioBtns" type="radio" value="CK">
+                Malmesbury
+            </label>
+            <label>
+                <input class="radios" name="radioBtns" type="radio" value="">
+                All
+            </label>
+        </div>
+
+        <div>
+            <button class="addBtn">Add</button>
+            <button class="filterBtn">Show</button>
+            <button class="resetBtn">Reset</button>
+        </div>
+
+        <div class="displayOutputField">
+
+        </div>
+    </div>
+</body>
+<script src="./registration-Fact.js"></script>
+<script src="./registrtion-template.js"></script>
 </html>

@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="registration_number.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Document</title>
 </head>
+
+
+<script type="text/x-template" class="displayItHere">
+    {{#each getTemplate}}
+    <div class="plates">{{this}}</div>
+  {{/each}}
+</script>
+
 
 <body>
 
@@ -53,8 +62,8 @@
     </div>
 
 </body>
-<script src="./registration_number.js"></script>
-<script src="./registration_number.dom.js"></script>
+
+<!-- Registration Numbers 2 -->
 
 <body>
 
@@ -63,42 +72,46 @@
             <h1>Registration Numbers</h1>
         </div>
         <div class="center">
-            <input name="number" class="inputReg" onfocus="this.value=''" placeholder="e.g. CA 123 456">
+            <input name="number" class="inputHere" onfocus="this.value=''" placeholder="e.g. CA 123 456">
         </div>
         <div>
-            <p class="message"></p>
+            <p class="messages"></p>
         </div>
 
         <div class="radioBtns">
             <label>
-                <input class="radios" name="radioBtns" type="radio" value="CA">
+                <input class="radioBtns" name="radio" type="radio" value="CA">
                 Cape Town
             </label>
             <label>
-                <input class="radios" name="radioBtns" type="radio" value="CY">
+                <input class="radioBtns" name="radio" type="radio" value="CY">
                 Bellville
             </label>
             <label>
-                <input class="radios" name="radioBtns" type="radio" value="CK">
+                <input class="radioBtns" name="radio" type="radio" value="CK">
                 Malmesbury
             </label>
             <label>
-                <input class="radios" name="radioBtns" type="radio" value="">
+                <input class="radioBtns" name="radio" type="radio" value="">
                 All
             </label>
         </div>
 
         <div>
-            <button class="addBtn">Add</button>
-            <button class="filterBtn">Show</button>
-            <button class="resetBtn">Reset</button>
+            <button class="addingBtn">Add</button>
+            <button class="filteringBtn">Show</button>
+            <button class="resettingBtn">Reset</button>
         </div>
 
-        <div class="displayOutputField">
+        <div class="ShowPlates">
 
         </div>
     </div>
+
+
 </body>
-<script src="./registration-Fact.js"></script>
-<script src="./registrtion-template.js"></script>
+<script src="./registration_number.js"></script>
+<script src="./registration-template.js"></script>
+<script src="./registration_number.dom.js"></script>
+
 </html>

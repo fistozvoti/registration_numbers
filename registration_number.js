@@ -1,5 +1,5 @@
-function registrationNumbers() {
-    var regList = storeRegs || [];
+function registrationNumbers(storage) {
+    var regList = storage || [];
 
     function displayRegNumbers(list) {
         let found = false;

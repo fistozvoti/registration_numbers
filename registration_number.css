@@ -45,8 +45,17 @@ button {
   padding : 1em;
   text-align: center;
   font-weight: bold;
-  /* border : 0.25em solid;
-  border-radius: 1em; */
+  animation:blinkingText 0.8s infinite;
+}
+.ShowPlates {
+  display: inline-block;
+  background-color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding : 1em;
+  text-align: center;
+  font-weight: bold;
+  animation:blinkingText 0.8s infinite;
 }
 .plates {
   border: solid black 2px;
@@ -60,7 +69,23 @@ button {
 .message {
   color: red;
 }
+.messages {
+  color: red;
+}
+@keyframes blinkingText{
+  0%{     color:yellow;    }
+  49%{    color: red; }
+  50%{    color: green; }
+  99%{    color: purple;  }
+  100%{   color: orangered;    }
+}
 .inputReg {
+  width: 500px;
+  height: 50px;
+  border: solid black 2px;
+  padding: 5px;
+}
+.inputHere {
   width: 500px;
   height: 50px;
   border: solid black 2px;

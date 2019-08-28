@@ -1,32 +1,74 @@
 function registrationNumbers(storage) {
     var regList = storage || [];
+    var valid = ['CA', 'CY', 'CK'];
+    const regularPattern = /^([A-Z]){2}\s([0-9]){3}\s([0-9]){3}/;
+    const regularPattern2 = /^^([A-Z]){2}\s([0-9]){3}-([0-9]){3}/;
 
-    function displayRegNumbers(list) {
-        let found = false;
+    let errorMessage = {
+        'isError': false,
+         'msg': ''
 
-        if (regList.length == 0) {
-            regList.push(list);
-            return found;
-        }
-        else if (regList.length >= 1) {
-            for (var i = 0; i < regList.length; i++) {
-                var regNum = regList[i];
-                if (regNum === list) {
-                    found = true;
-                    return found;
-                }
-            }
-            if (!found) {
-                regList.push(list);
-                found = false;
-                return found;
-            }
-        }
     }
+    function handleError(isError, message){
+        errorMessage.isError = isError;
+        errorMessage.msg = message;
+         return errorMessage
+    }
+
+   function addnew(reg){
+    if(reg === undefined || reg === ""){
+        return handleError(true, 'Please insert Registration number!')
+    }
+      if(!regularPattern.test(reg) && !regularPattern2.test(reg)){
+     return handleError(true,'Invalid Format!');
+      }
+    if(!valid.includes(reg.split(' ')[0])){
+       return handleError(true,'Invalid Registration!');
+    }
+    if(regList.includes(reg)){
+      return handleError(true, 'Already exists!');
+      
+    }
+    regList.push(reg)
+     return handleError(false, 'Registration number added!');
+   }
+
+
+
+
+
+
+    // function displayRegNumbers(list) {
+    //     let found = false;
+
+    //     if (regList.length == 0) {
+    //         regList.push(list);
+    //         return found;
+    //     }
+    //     else if (regList.length >= 1) {
+    //         for (var i = 0; i < regList.length; i++) {
+    //             var regNum = regList[i];
+    //             if (regNum === list) {
+    //                 found = true;
+    //                 return found;
+    //             }
+    //         }
+    //         if (!found) {
+    //             regList.push(list);
+    //             found = false;
+    //             return found;
+    //         }
+    //     }
+    // }
 
 
     function filterRegsOnTown(town) {
         var filterdList = [];
+           
+        if(town === undefined || town === ""){
+            return regList;
+        }
+
         for (var i = 0; i < regList.length; i++) {
             var reg = regList[i];
 
@@ -43,8 +85,9 @@ function registrationNumbers(storage) {
     }
 
     return {
-        displayRegNumbers,
+        // displayRegNumbers,
         filterRegsOnTown,
-        getList
+        getList,
+        addnew
     }
 }

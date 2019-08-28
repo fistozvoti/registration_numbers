@@ -45,7 +45,7 @@ button {
   padding : 1em;
   text-align: center;
   font-weight: bold;
-  animation:blinkingText 0.8s infinite;
+  /* animation:blinkingText 0.8s infinite; */
 }
 .ShowPlates {
   display: inline-block;
@@ -55,7 +55,7 @@ button {
   padding : 1em;
   text-align: center;
   font-weight: bold;
-  animation:blinkingText 0.8s infinite;
+  /* animation:blinkingText 0.8s infinite; */
 }
 .plates {
   border: solid black 2px;
@@ -66,19 +66,21 @@ button {
   border-radius: 0.5em;
   padding: 5px;
 }
-.message {
+
+.error {
   color: red;
 }
-.messages {
-  color: red;
+.success {
+  color: green;
 }
-@keyframes blinkingText{
+
+/* @keyframes blinkingText{
   0%{     color:yellow;    }
   49%{    color: red; }
   50%{    color: green; }
   99%{    color: purple;  }
   100%{   color: orangered;    }
-}
+} */
 .inputReg {
   width: 500px;
   height: 50px;

@@ -45,9 +45,8 @@ describe('Registration Numbers function', function () {
         let errormsg = error4.addnew('CK 43533');
         assert.deepEqual('Invalid Format!', errormsg.msg);
     });
-    it('should be able to give a message when there is a correct registration number entered', function () {
-        let error3 = registrationNumbers();
-
+    it('It should return an error message if there is a duplication of registration numbers', function () {
+        var error3 = registrationNumbers();
 
         var errormsg = error3.addnew('CA 122 666');
         assert.deepEqual('Registration number added!', errormsg.msg);
@@ -76,51 +75,3 @@ describe('Registration Numbers function', function () {
     });
 
 });
-// describe('Registration function messages', function () {
-//     it('Return a message when a registration number has been added', function () {
-//         var AddMessage = registrationNumbersTemplate();
-
-//         let message = AddMessage.regNumbersTemplate("CA 123 123")
-//         assert.equal("Successfully added!", message);
-//     });
-//     it('It should return an error message if there is nothing entered into the list', function () {
-//         var errorTest = registrationNumbersTemplate();
-
-//         errorTest.regNumbersTemplate("");
-//         assert.equal("Please add a registration number!", errorTest.regNumbersTemplate());
-//     });
-//     it('should be able to give an error message if there is an invalid input given', function () {
-//         let invalidError = registrationNumbersTemplate();
-
-//         var getError = invalidError.regNumbersTemplate('sdfgdggjhh');
-//         assert.equal("This is not valid dude!", getError);
-//     });
-//     it('It should return an error message if there is a duplication of registration numbers', function () {
-//         var errorTest = registrationNumbersTemplate();
-
-//         let message2 = errorTest.regNumbersTemplate("CA 123 123");
-//         let message = errorTest.regNumbersTemplate("CA 123 123")
-//         assert.equal("This already exists dude!", message);
-//     });
-
-//     it('should be able to give a message if there is no filtered data for that selected town', function () {
-//         let addToList = registrationNumbersTemplate();
-
-//         addToList.regNumbersTemplate('CA 55666');
-//         addToList.regNumbersTemplate('CL 43533');
-//         addToList.regNumbersTemplate('CL 43533');
-//         var filtered = addToList.filterRegstemplate('CK');
-//         assert.equal("No registration(s) yet!", filtered);
-//     });
-//     it('should not add the duplicated data but should be able to give filtered data for that selected town', function () {
-//         let filterTown = registrationNumbersTemplate();
-
-//         filterTown.regNumbersTemplate('CA 55666');
-//         filterTown.regNumbersTemplate('CL 43533');
-//         filterTown.regNumbersTemplate('CK 43533');
-//         filterTown.regNumbersTemplate('CK 43533');
-//         var filtered = filterTown.filterRegstemplate('CK');
-//         assert.deepEqual(['CK 43533'], filtered);
-//     });
-
-// });

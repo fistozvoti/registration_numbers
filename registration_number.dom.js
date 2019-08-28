@@ -16,58 +16,58 @@ var storeRegs = JSON.parse(localStorage.getItem('list'));
 var factoryFunc = registrationNumbers(storeRegs);
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    
+
     displayPlates(factoryFunc.getList());
 });
 
 
- function addRegistrations(){
+function addRegistrations() {
     let result = factoryFunc.addnew(regElem.value.toUpperCase());
-    if(result.isError){
+    if (result.isError) {
         colorDisplay('success', 'error');
         clearError();
         error.innerHTML = result.msg;
-    }else{
+    } else {
         let regData = factoryFunc.getList();
-    displayPlates(regData);
-    localStorage.setItem('list', JSON.stringify(regData));
-    colorDisplay('error','success');
-    clearError();
-    error.innerHTML = result.msg;
+        displayPlates(regData);
+        localStorage.setItem('list', JSON.stringify(regData));
+        colorDisplay('error', 'success');
+        clearError();
+        error.innerHTML = result.msg;
     }
- }
-function displayPlates(regArray){
+}
+function displayPlates(regArray) {
     outputField.innerHTML = '';
     for (let i = 0; i < regArray.length; i++) {
         const element = regArray[i];
         createElem(element);
     }
 }
- function createElem(regNumber){
+function createElem(regNumber) {
     var getStored = document.createElement("div");
-        getStored.classList.add("plates");
-        var newContent = document.createTextNode(regNumber);
-        getStored.appendChild(newContent);
-        outputField.appendChild(getStored);
- }
+    getStored.classList.add("plates");
+    var newContent = document.createTextNode(regNumber);
+    getStored.appendChild(newContent);
+    outputField.appendChild(getStored);
+}
 
-function showFiltered(){
+function showFiltered() {
     let townTag = document.querySelector("input[name=radioBtns]:checked").value;
     console.log(townTag);
     displayPlates(factoryFunc.filterRegsOnTown(townTag));
 }
 
 function reset() {
-        localStorage.removeItem('list');
-        outputField.innerHTML = storeRegs;
-        location.reload();
-    }
+    localStorage.removeItem('list');
+    outputField.innerHTML = storeRegs;
+    location.reload();
+}
 
- function colorDisplay(removeColor, addColor){
-     error.classList.remove(removeColor);
-     error.classList.add(addColor);
-     
- }
+function colorDisplay(removeColor, addColor) {
+    error.classList.remove(removeColor);
+    error.classList.add(addColor);
+
+}
 displayBtn.addEventListener('click', addRegistrations);
 showRegNums.addEventListener('click', showFiltered);
 resetBtnElem.addEventListener('click', reset);

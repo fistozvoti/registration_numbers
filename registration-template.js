@@ -10,6 +10,15 @@ var compileHandlers = Handlebars.compile(getHandlerbar);
 var displayField = document.querySelector(".ShowPlates")
 
 
+
+
+function tempClearError() {
+    setTimeout(function () {
+        errorMessages.innerHTML = "";
+    }, 2000);
+}
+
+
 var storage = JSON.parse(localStorage.getItem('array'));
 var getFactory = registrationNumbers(storage);
 

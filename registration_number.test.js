@@ -15,7 +15,6 @@ describe('Registration Numbers function', function () {
         let filtered = filter3.filterRegsOnTown('CA')
         assert.deepEqual(['CA 456-845'], filtered);
     });
-    
     it('should be able to filter out "CY" registration number if Bellville is selected', function () {
         let filter1 = registrationNumbers();
 
@@ -32,21 +31,6 @@ describe('Registration Numbers function', function () {
         filter1.addnew('CK 558-787');
         assert.deepEqual(['CK 789-865', 'CK 558-787'], filter1.filterRegsOnTown('CK'));
     });
-    it('should be able to give a message when there is a correct registration number entered', function () {
-        let error3 = registrationNumbers();
-       
-        
-        var errormsg = error3.addnew('CA 122 666');
-        assert.deepEqual('Registration number added!', errormsg.msg );
-    });
-    
-    it('should be able to give a message when there is an invalid format entered', function () {
-        let error4 = registrationNumbers();
-
-        
-        let errormsg = error4.addnew('CK 43533');
-        assert.deepEqual('Invalid Format!', errormsg.msg);
-    });
     it('should not show the registration number if it has been already added to the list', function () {
         let filter2 = registrationNumbers();
 
@@ -54,19 +38,43 @@ describe('Registration Numbers function', function () {
         var errormsg = filter2.addnew('CY 558-287');
         assert.deepEqual('Already exists!', errormsg.msg);
     });
-    it('should be able to give a message when the add button is clicked but there is no registration number entered', function () {
-        let filter2 = registrationNumbers();
+    it('should be able to give an error message when there is an invalid format entered', function () {
+        let error4 = registrationNumbers();
 
-        var errormsg = filter2.addnew('');
-        assert.deepEqual('Please insert Registration number!', errormsg.msg);
+
+        let errormsg = error4.addnew('CK 43533');
+        assert.deepEqual('Invalid Format!', errormsg.msg);
     });
-    it('should be able to give a message when there is an unsupported registration number entered', function () {
+    it('should be able to give a message when there is a correct registration number entered', function () {
+        let error3 = registrationNumbers();
+
+
+        var errormsg = error3.addnew('CA 122 666');
+        assert.deepEqual('Registration number added!', errormsg.msg);
+    });
+    it('should not add the duplicated data but should be able to give filtered data for that selected town', function () {
+        let filterTown = registrationNumbers();
+
+        filterTown.addnew('CA 556-966');
+        filterTown.addnew('CY 435-033');
+        filterTown.addnew('CK 435-733');
+        filterTown.addnew('CK 435-733');
+        var filtered = filterTown.filterRegsOnTown('CK');
+        assert.deepEqual(['CK 435-733'], filtered);
+    });
+    it('should be able to give an error message when there is an unsupported registration number entered', function () {
         let filter2 = registrationNumbers();
 
         var errormsg = filter2.addnew('CL 657-098');
         assert.deepEqual('Invalid Registration!', errormsg.msg);
     });
-    
+    it('should be able to give an error message when the add button is clicked but there is no registration number entered', function () {
+        let filter2 = registrationNumbers();
+
+        var errormsg = filter2.addnew('');
+        assert.deepEqual('Please insert Registration number!', errormsg.msg);
+    });
+
 });
 // describe('Registration function messages', function () {
 //     it('Return a message when a registration number has been added', function () {
@@ -94,7 +102,7 @@ describe('Registration Numbers function', function () {
 //         let message = errorTest.regNumbersTemplate("CA 123 123")
 //         assert.equal("This already exists dude!", message);
 //     });
-    
+
 //     it('should be able to give a message if there is no filtered data for that selected town', function () {
 //         let addToList = registrationNumbersTemplate();
 
@@ -114,5 +122,5 @@ describe('Registration Numbers function', function () {
 //         var filtered = filterTown.filterRegstemplate('CK');
 //         assert.deepEqual(['CK 43533'], filtered);
 //     });
-   
+
 // });

@@ -33,35 +33,6 @@ function registrationNumbers(storage) {
      return handleError(false, 'Registration number added!');
    }
 
-
-
-
-
-
-    // function displayRegNumbers(list) {
-    //     let found = false;
-
-    //     if (regList.length == 0) {
-    //         regList.push(list);
-    //         return found;
-    //     }
-    //     else if (regList.length >= 1) {
-    //         for (var i = 0; i < regList.length; i++) {
-    //             var regNum = regList[i];
-    //             if (regNum === list) {
-    //                 found = true;
-    //                 return found;
-    //             }
-    //         }
-    //         if (!found) {
-    //             regList.push(list);
-    //             found = false;
-    //             return found;
-    //         }
-    //     }
-    // }
-
-
     function filterRegsOnTown(town) {
         var filterdList = [];
            
@@ -85,7 +56,6 @@ function registrationNumbers(storage) {
     }
 
     return {
-        // displayRegNumbers,
         filterRegsOnTown,
         getList,
         addnew

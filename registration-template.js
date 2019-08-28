@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 function showFiltered(){
     let radioValue = document.querySelector("input[name=radio]:checked").value;
     console.log(radioValue);
-    let getFiltered = getFactory.filterRegsOnTown(radioValue)
+    let getFiltered = getFactory.filterRegsOnTown(radioValue);
 
         var filterData = compileHandlers({getTemplate: getFiltered});
         displayField.innerHTML = filterData;
@@ -56,8 +56,8 @@ function resetter() {
     }
 
 function colorDisplayOnTemps(removeColor, addColor){
-     errorMessages.classList.remove(removeColor)
-     errorMessages.classList.add(addColor)
+     errorMessages.classList.remove(removeColor);
+     errorMessages.classList.add(addColor);
  }
 function tempsClearError() {
     setTimeout(function () {

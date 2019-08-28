@@ -24,8 +24,7 @@ var getFactory = registrationNumbers(storage);
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
-
-        var storing = compileHandlers({getTemplate: storage});
+        let storing = compileHandlers({getTemplate: storage});
         displayField.innerHTML = storing;
 });
 
@@ -51,7 +50,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function showFiltered(){
     let radioValue = document.querySelector("input[name=radio]:checked").value;
-    console.log(radioValue);
     let getFiltered = getFactory.filterRegsOnTown(radioValue);
 
         var filterData = compileHandlers({getTemplate: getFiltered});

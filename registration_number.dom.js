@@ -53,7 +53,6 @@ function createElem(regNumber) {
 
 function showFiltered() {
     let townTag = document.querySelector("input[name=radioBtns]:checked").value;
-    console.log(townTag);
     displayPlates(factoryFunc.filterRegsOnTown(townTag));
 }
 
